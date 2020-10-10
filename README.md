@@ -5,7 +5,7 @@ To use the device bridge solution, you will need the following:
 - an Azure account. You can create a free Azure account from [here](https://aka.ms/aft-iot)
 - an Azure IoT Central application to connect the devices. Create a free app by following [these instructions](https://docs.microsoft.com/en-us/azure/iot-central/quick-deploy-iot-central)
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FnanowireUK%2Fiotc-device-bridge%2Fmqtt-integration%2Fazuredeploy.json)
 
 ## Instructions
 Take the following steps to deploy an Azure Function into your subscription and set up the device bridge.

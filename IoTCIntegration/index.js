@@ -18,6 +18,13 @@ let kvToken;
 
 module.exports = async function (context, req) {
     try {
+        req.body = {
+            device: {
+                deviceId: req.body.hardware_serial.toLowerCase()
+            },
+            measurements: req.body.payload_fields
+        };
+        
         await handleMessage({ ...parameters, log: context.log, getSecret: getKeyVaultSecret }, req.body.device, req.body.measurements, req.body.timestamp);
     } catch (e) {
         context.log('[ERROR]', e.message);
