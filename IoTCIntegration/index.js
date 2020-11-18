@@ -18,13 +18,26 @@ let kvToken;
 
 module.exports = async function (context, req) {
     try {
+        // modelIdCheck = req.body.modelId || null;
+        // req.body = {
+        //     device: {
+        //         deviceId: req.body.hardware_serial.toLowerCase(),
+        //         modelId: modelIdCheck
+        //     },
+        //     measurements: req.body.payload_fields
+        // };
+
         req.body = {
             device: {
-                deviceId: req.body.hardware_serial.toLowerCase()
+                deviceId: req.body.payloadMetaData.deviceMetaData.deviceEUI.toLowerCase()
             },
-            measurements: req.body.payload_fields
+            measurements: {
+                deviceType: req.body.payloadMetaData.deviceMetaData.name,
+                telemetry: req.body.payload,
+                metadata: req.body.payloadMetaData
+            }
         };
-        
+               
         await handleMessage({ ...parameters, log: context.log, getSecret: getKeyVaultSecret }, req.body.device, req.body.measurements, req.body.timestamp);
     } catch (e) {
         context.log('[ERROR]', e.message);
